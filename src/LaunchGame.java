@@ -64,11 +64,11 @@ class TicTacToe{
 	}
 	
 	}
-class HumanPlayer{
+class Player{
 	String name;
 	char mark;
 	
-	HumanPlayer(String name,char mark){
+	Player(String name,char mark){
 		this.name = name;
 		this.mark = mark;
 			}
@@ -101,25 +101,25 @@ public class LaunchGame{
 	public static void main(String[] args) {
 		
 		TicTacToe t1 = new TicTacToe();
-		HumanPlayer p1 = new HumanPlayer("Pallavi", 'X');
-		HumanPlayer p2 = new HumanPlayer("Khushi", 'O');
+		Player player1 = new Player("Pallavi", 'X');
+		Player player2 = new Player("Khushi", 'O');
 		
-		HumanPlayer cp;//here cp is the reference variable
-		cp = p1;//assigning value of p1 to the cp
+		Player currentplayer;//here cp is the reference variable
+		currentplayer = player1;//assigning value of p1 to the cp
 		while(true) {
-			System.out.println(cp.name +" turns:");
-			cp.makeMove();
+			System.out.println(currentplayer.name +" turns:");
+			currentplayer.makeMove();
 			TicTacToe.dispBoard();
 			if(TicTacToe.checkRowWin() || TicTacToe.checkColWin() || TicTacToe.checkDiagWin()) {
-				System.out.println(cp.name +" won the game:)");
+				System.out.println(currentplayer.name +" won the game:)");
 				break;
 			}
 			else {
-				if(cp == p1) {//checking if the cp is reference variable of p1 or not
-					cp = p2;//if cp is reference variable of p1 then on next move it will change to p2
+				if(currentplayer == player1) {//checking if the cp is reference variable of p1 or not
+					currentplayer = player2;//if cp is reference variable of p1 then on next move it will change to p2
 				}
 				else {
-					cp = p1;//and if cp is not the reference variable of p1 then it will change to p1
+					currentplayer = player1;//and if cp is not the reference variable of p1 then it will change to p1
 				}
 			}
 		}
